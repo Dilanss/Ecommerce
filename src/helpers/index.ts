@@ -12,37 +12,38 @@ export const formatPrice = (price: number) => {
 
 
 // Funcion para preparar los prductos
-export const prepareProducts = (products: Product[]) => {
-    return products.map(product => {
-        //agrupar las variantes por color
-        const colors = product.variants.reduce((acc: Color[], variant: VariantProduct) => {
-            const existingColor = acc.find(item => item.color === variant.color);
+export const prepareProducts = (products: Product[] | undefined) => {
+    if (!products) return []; // Manejar undefined devolviendo un arreglo vacío
 
-            if(existingColor) {
-                // Si ya existe comparamos lo precios
-                existingColor.price  = Math.min(existingColor.price, variant.price);
-                // Mantenemos el precio minimo
+    return products.map((product) => {
+        // Agrupar las variantes por color
+        const colors = product.variants.reduce((acc: Color[], variant: VariantProduct) => {
+            const existingColor = acc.find((item) => item.color === variant.color);
+
+            if (existingColor) {
+                // Si ya existe, comparamos los precios
+                existingColor.price = Math.min(existingColor.price, variant.price);
+                // Mantenemos el precio mínimo
             } else {
                 acc.push({
                     color: variant.color,
                     price: variant.price,
                     name: variant.color_name,
-                })
+                });
             }
 
             return acc;
         }, []);
 
-        // Obtener el preci mas bajo de las variantes agrupadas
-        const price = Math.min(...colors.map(item => item.price));
+        // Obtener el precio más bajo de las variantes agrupadas
+        const price = Math.min(...colors.map((item) => item.price));
 
         // Devolver el producto formateado
         return {
             ...product,
             price,
-            colors: colors.map(({name, color}) => ({name, color})),
+            colors: colors.map(({ name, color }) => ({ name, color })),
             variants: product.variants,
-        }
-
+        };
     });
 };
