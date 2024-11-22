@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { RootLayout } from "../layouts/RootLayout";
-import { AboutPages, CellPhonePage, CellPhonesPage, HomePage, LoginPage, OrdersUserPage, RegisterPage } from "../pages";
+import { AboutPages, CellPhonePage, CellPhonesPage, CheckoutPage, HomePage, LoginPage, OrdersUserPage, OrderUserPage, RegisterPage, ThankyouPage } from "../pages";
 import { ClientLayout } from "../layouts/ClientLayout";
 
 export const router = createBrowserRouter([
@@ -44,8 +44,20 @@ export const router = createBrowserRouter([
                         path: 'pedidos',
                         element: <OrdersUserPage />
                     },
+                    {
+                        path: 'pedidos/:id',
+                        element: <OrderUserPage />
+                    },
                 ],
             },
         ],
+    },
+    {
+        path: '/checkout',
+        element: <CheckoutPage />,
+    },
+    {
+        path: '/checkout/:id/thank-you',
+        element: <ThankyouPage />
     },
 ]);

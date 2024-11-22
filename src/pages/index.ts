@@ -7,5 +7,11 @@ export * from './CellPhonePage';
 export * from './LoginPage'
 export * from './RegisterPage'
 export * from './OrdersUserPage'
+export * from './OrderUserPage'
+export * from './CheckoutPage'
+
+// Agradecimiento
+export * from './ThankyouPage'
+
 
 
