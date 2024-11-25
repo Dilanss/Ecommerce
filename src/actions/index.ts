@@ -1,3 +1,3 @@
 export * from './product'
 export * from './auth'
-export * from './Order'
+export * from './order'

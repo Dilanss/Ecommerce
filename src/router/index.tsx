@@ -1,7 +1,21 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { RootLayout } from "../layouts/RootLayout";
-import { AboutPages, CellPhonePage, CellPhonesPage, CheckoutPage, HomePage, LoginPage, OrdersUserPage, OrderUserPage, RegisterPage, ThankyouPage } from "../pages";
+import { 
+    AboutPages, 
+    CellPhonePage,
+    CellPhonesPage, 
+    CheckoutPage, 
+    DashboardProductsPage, 
+    HomePage, 
+    LoginPage, 
+    OrdersUserPage, 
+    OrderUserPage, 
+    RegisterPage, 
+    ThankyouPage 
+} from "../pages";
+
 import { ClientLayout } from "../layouts/ClientLayout";
+import { DashboardLayout } from "../layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
     {
@@ -59,5 +73,19 @@ export const router = createBrowserRouter([
     {
         path: '/checkout/:id/thank-you',
         element: <ThankyouPage />
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            {
+                index: true,
+                element: <Navigate to='/dashboard/productos' />
+            },
+            {
+                path: 'productos',
+                element: <DashboardProductsPage />
+            },
+        ],
     },
 ]);

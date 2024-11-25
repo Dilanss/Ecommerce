@@ -58,6 +58,18 @@ export const formatDateLong = (date: string): string => {
     });
 };
 
+// Funcion para formatar la fehca dd/mm/yyyy
+
+export const formatDate = (date: string): string => {
+    const dateObject = new Date(date);
+
+    return dateObject.toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: '2-digit',
+        day: 'numeric',
+    });
+};
+
 // Funcion para optener el estado del pedido en español
 export const getStatus = (status: string): string => {
     switch (status) {

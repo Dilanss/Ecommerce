@@ -13,5 +13,7 @@ export * from './CheckoutPage'
 // Agradecimiento
 export * from './ThankyouPage'
 
+// Layout
+export * from './dashboard/DashboardProductsPage'
 
 
