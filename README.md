@@ -13,3 +13,4 @@ Instalar las dependencias nesesarias con:
 ## Conectarlo con supabase:
 - Buscar la api de su supabase
 - Buscar la url de su supabase
+- Crean un archivo llamado .env y colocan cada una de las direcciones hay

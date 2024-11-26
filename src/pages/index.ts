@@ -15,5 +15,5 @@ export * from './ThankyouPage'
 
 // Layout
 export * from './dashboard/DashboardProductsPage'
-
+export * from './dashboard/DashboardNewProductPage'
 
