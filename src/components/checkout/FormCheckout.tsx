@@ -24,7 +24,7 @@ export const FormCheckout = () => {
 	const cleanCart = useCartStore(state => state.cleanCart);
 	const cartItems = useCartStore(state => state.items);
 	const totalAmount = useCartStore(state => state.totalAmount);
-
+// 
 	const onSubmit = handleSubmit(data => {
 		const orderInput = {
 			address: data,
