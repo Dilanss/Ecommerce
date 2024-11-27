@@ -6,6 +6,7 @@ import {
     CellPhonesPage, 
     CheckoutPage, 
     DashboardNewProductPage,
+    DashboardProductSlugPage,
     DashboardProductsPage, 
     HomePage, 
     LoginPage, 
@@ -90,7 +91,11 @@ export const router = createBrowserRouter([
             {
                 path: 'productos/new',
                 element: <DashboardNewProductPage />
-            }
+            },
+            {
+                path: 'productos/editar/:slug',
+                element: <DashboardProductSlugPage />
+            },
         ],
     },
 ]);
